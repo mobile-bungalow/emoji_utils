@@ -3,7 +3,8 @@ extern crate regex;
 use picker_struct::{EmojiData, EMOJI_DATA};
 use regex::{escape, Regex};
 
-// Search The emoji structure
+// Search The emoji structure for emojis with
+// tags matching the search string
 pub fn emoji_search(search_string: String) -> Option<Vec<&'static str>> {
     if let Ok(re) = Regex::new(&escape(&search_string)) {
         let matches: Vec<&EmojiData> = EMOJI_DATA
@@ -25,6 +26,6 @@ mod tests {
     use super::*;
     #[test]
     fn emoji_search_test() {
-        println!("{:?}", emoji_search("green".to_string()));
+        assert_eq!(Some(vec!["👍", "👎"]), emoji_search("thumb".to_string()));
     }
 }

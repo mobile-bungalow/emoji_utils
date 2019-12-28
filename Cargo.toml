@@ -2,7 +2,9 @@
 authors = ["mobile-bungalow <pwmay@ucsc.edu>"]
 edition = "2018"
 name = "emoji_utils"
-version = "0.1.0"
+version = "0.0.1"
+description = "an emoji search and enumeration utility with one function"
+license = "MIT"
 
 [dependencies]
 regex = "1.3"

@@ -61,7 +61,13 @@ fn emoji_search(search_string: String, lang: &Language) -> Option<Vec<&'static s
             .filter(|datum| datum.tags.iter().any(|tag| re.is_match(tag)))
             .collect();
         if matches.len() > 0 {
-            Some(matches.iter().map(|x| x.emoji).collect())
+            Some(
+                matches
+                    .iter()
+                    .enumerate()
+                    .map(|(_, x)| translate(x.emoji, lang))
+                    .collect(),
+            )
         } else {
             None
         }
@@ -71,7 +77,7 @@ fn emoji_search(search_string: String, lang: &Language) -> Option<Vec<&'static s
 }
 
 // runs the given text through
-fn translate(tag: &'static str, lang: Language) -> &'static str {
+fn translate(tag: &'static str, lang: &Language) -> &'static str {
     match lang {
         Language::En => tag,
         // TODO: run other languages through a lookup

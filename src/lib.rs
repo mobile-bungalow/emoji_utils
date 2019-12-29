@@ -3,6 +3,8 @@ extern crate regex;
 use picker_struct::{EmojiData, EMOJI_DATA};
 use regex::{escape, Regex};
 
+pub use picker_struct::*;
+
 /// the language for the emoji searcher
 pub enum Language {
     /// english
@@ -22,38 +24,37 @@ pub enum Language {
 /// the main interface with the static emoji
 /// data.
 pub struct EmojiUtil {
-    current_emojis: Option<Vec<&'static str>>,
+    pub current_emojis: Option<Vec<&'static str>>,
     search_string: Option<String>,
     language: Language,
 }
 
 impl EmojiUtil {
-    pub fn new() -> EmojiUtil {
-        EmojiUtil::default()
-    }
-
-    pub fn current_emojis() {}
-
-    pub fn set_search_string() {}
-
-    pub fn clear_search() {}
-
-    pub fn set_language() {}
-}
-
-impl Default for EmojiUtil {
-    fn default() -> Self {
+    pub fn new(lang: Language) -> EmojiUtil {
         EmojiUtil {
             current_emojis: Some(EMOJI_DATA.iter().map(|datum| datum.emoji).collect()),
             search_string: None,
-            language: Language::En,
+            language: lang,
         }
+    }
+
+    pub fn search(&mut self, search_string: String) {
+        self.current_emojis = emoji_search(search_string, &self.language)
+    }
+
+    pub fn clear_search(&mut self) {
+        self.search_string = None;
+        self.current_emojis = Some(EMOJI_DATA.iter().map(|datum| datum.emoji).collect())
+    }
+
+    pub fn set_language(&mut self, language: Language) {
+        self.language = language;
     }
 }
 
 // Search The emoji structure for emojis with
 // tags matching the search string
-fn emoji_search(search_string: String, lang: Language) -> Option<Vec<&'static str>> {
+fn emoji_search(search_string: String, lang: &Language) -> Option<Vec<&'static str>> {
     if let Ok(re) = Regex::new(&escape(&search_string)) {
         let matches: Vec<&EmojiData> = EMOJI_DATA
             .iter()
@@ -85,9 +86,18 @@ mod tests {
     use super::*;
     #[test]
     fn emoji_search_test() {
-        assert_eq!(
-            Some(vec!["👍", "👎"]),
-            emoji_search("thumb".to_string(), Language::En)
-        );
+        let mut eu = EmojiUtil::new(Language::En);
+        eu.search(String::from("thumb"));
+        assert_eq!(Some(vec!["👍", "👎"]), eu.current_emojis);
+    }
+
+    #[test]
+    fn clear_search() {
+        let mut eu = EmojiUtil::new(Language::En);
+        let orig_clone = eu.current_emojis.clone();
+        eu.search(String::from("thumb"));
+        assert_eq!(Some(vec!["👍", "👎"]), eu.current_emojis);
+        eu.clear_search();
+        assert_eq!(orig_clone, eu.current_emojis);
     }
 }

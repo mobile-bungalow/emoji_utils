@@ -54,15 +54,19 @@ def combine_tags(obj):
 def main():
     raw_json = requests.get(emoji_json_url)
 
-    raw_obj = list(map(lambda obj: {
-                   "emoji": "\"" + obj["emoji"] + "\"", "tags": combine_tags(obj)}, json.loads(raw_json.text)))
+    filtered_json = list(filter(
+        lambda obj: float(obj["unicode_version"] if len(obj["unicode_version"]) != 0 else "13.0") < 12.0, json.loads(raw_json.text)))
 
-    section_tuple = extract_section_indices(json.loads(raw_json.text))
+    print(len(filtered_json))
+
+    raw_obj = list(map(
+        lambda obj: {"emoji": "\"" + obj["emoji"] + "\"", "tags": combine_tags(obj)}, filtered_json))
+
+    section_tuple = extract_section_indices(filtered_json)
 
     struct_strings = [format_struct(i) for i in raw_obj]
 
     struct_strings = ",".join(struct_strings)
-
     struct_strings = "[\n" + struct_strings + "]"
 
     sne_index = section_tuple[0]

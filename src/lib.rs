@@ -25,8 +25,8 @@ pub enum Language {
 /// data.
 pub struct EmojiUtil {
     pub current_emojis: Option<Vec<&'static str>>,
-    search_string: Option<String>,
-    language: Language,
+    pub search_string: Option<String>,
+    pub language: Language,
 }
 
 impl EmojiUtil {

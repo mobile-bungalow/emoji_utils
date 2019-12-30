@@ -1,4 +1,5 @@
 EmojiData {{
     emoji: {emoji},
-    tags:  &{comma_seperated_tags}
+    tags:  &{tags},
+    skintone_modifier: {skintone_modifier}
 }}

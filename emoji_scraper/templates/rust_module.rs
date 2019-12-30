@@ -2,7 +2,8 @@
 
 pub struct EmojiData {{
     pub emoji: &'static str,
-    pub tags: &'static [&'static str]
+    pub tags: &'static [&'static str],
+    pub skintone_modifier: bool
 }}
 
 pub static SMILEYS_EMOTION: usize = {sne_index};

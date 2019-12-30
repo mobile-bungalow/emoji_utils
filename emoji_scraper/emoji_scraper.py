@@ -23,8 +23,11 @@ emoji_json_url = "https://raw.githubusercontent.com/github/gemoji/master/db/emoj
 # }
 
 
-def format_struct(json_emoji_data_obj):
-    return emoji_struct_f_string.format(emoji=json_emoji_data_obj["emoji"], comma_seperated_tags='["' + '","'.join(json_emoji_data_obj["tags"]) + '"]')
+def format_struct(obj):
+    return emoji_struct_f_string.format(emoji=obj["emoji"],
+                                        tags='["' +
+                                        '","'.join(obj["tags"]) + '"]',
+                                        skintone_modifier="true" if obj["skintone_modifer"] else "false")
 
 
 def extract_section_indices(json_list):
@@ -52,15 +55,18 @@ def combine_tags(obj):
 
 
 def main():
-    raw_json = requests.get(emoji_json_url)
+    raw_json = json.loads(requests.get(emoji_json_url).text)
 
     filtered_json = list(filter(
-        lambda obj: float(obj["unicode_version"] if len(obj["unicode_version"]) != 0 else "13.0") < 12.0, json.loads(raw_json.text)))
-
-    print(len(filtered_json))
+        lambda obj:
+        float(obj["unicode_version"]
+              if obj["unicode_version"] else "13.0") < 12.0,
+        raw_json))
 
     raw_obj = list(map(
-        lambda obj: {"emoji": "\"" + obj["emoji"] + "\"", "tags": combine_tags(obj)}, filtered_json))
+        lambda obj: {"emoji": "\"" + obj["emoji"] + "\"",
+                     "tags": combine_tags(obj),
+                     "skintone_modifer": (obj.get("skin_tones") != None)}, filtered_json))
 
     section_tuple = extract_section_indices(filtered_json)
 

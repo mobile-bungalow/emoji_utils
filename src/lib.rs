@@ -104,11 +104,13 @@ mod tests {
             Some(vec![
                 &EmojiData {
                     emoji: "👍",
-                    tags: &[]
+                    tags: &[],
+                    skintone_modifier: false,
                 },
                 &EmojiData {
                     emoji: "👎",
-                    tags: &[]
+                    tags: &[],
+                    skintone_modifier: false,
                 }
             ]),
             eu.current_emojis
@@ -124,11 +126,13 @@ mod tests {
             Some(vec![
                 &EmojiData {
                     emoji: "👍",
-                    tags: &[]
+                    tags: &[],
+                    skintone_modifier: false,
                 },
                 &EmojiData {
                     emoji: "👎",
-                    tags: &[]
+                    tags: &[],
+                    skintone_modifier: false,
                 }
             ]),
             eu.current_emojis

@@ -56,11 +56,11 @@ def combine_tags(obj):
 
 def main():
     raw_json = json.loads(requests.get(emoji_json_url).text)
-
+    unic_v = "unicode_version"
     filtered_json = list(filter(
         lambda obj:
-        float(obj["unicode_version"]
-              if obj["unicode_version"] else "13.0") < 12.0,
+        float(obj[unic_v] if obj[unic_v] else "13.0") < 12.0
+        and not ("♀" in obj["emoji"] or "♂" in obj["emoji"]),
         raw_json))
 
     raw_obj = list(map(

@@ -8,15 +8,15 @@ pub struct EmojiData {
 
 pub static SMILEYS_EMOTION: usize = 0;
 pub static PEOPLE_BODY: usize = 141;
-pub static ANIMALS_NATURE: usize = 394;
-pub static FOOD_DRINK: usize = 514;
-pub static TRAVEL_PLACES: usize = 625;
-pub static ACTIVITIES: usize = 819;
-pub static OBJECTS: usize = 890;
-pub static SYMBOLS: usize = 1101;
-pub static FLAGS: usize = 1242;
+pub static ANIMALS_NATURE: usize = 307;
+pub static FOOD_DRINK: usize = 427;
+pub static TRAVEL_PLACES: usize = 538;
+pub static ACTIVITIES: usize = 732;
+pub static OBJECTS: usize = 803;
+pub static SYMBOLS: usize = 1014;
+pub static FLAGS: usize = 1153;
 
-pub static EMOJI_DATA: [EmojiData; 1510]  = [
+pub static EMOJI_DATA: [EmojiData; 1421]  = [
 EmojiData {
     emoji: "😀",
     tags:  &["grinning face","smile","happy","grinning"],
@@ -1013,16 +1013,6 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "👱‍♀️",
-    tags:  &["woman: blond hair","blond haired woman","blonde woman"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "👱‍♂️",
-    tags:  &["man: blond hair","blond haired man"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🧓",
     tags:  &["older person","older adult"],
     skintone_modifier: true
@@ -1043,28 +1033,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🙍‍♂️",
-    tags:  &["man frowning","frowning man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🙍‍♀️",
-    tags:  &["woman frowning","frowning woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🙎",
     tags:  &["person pouting","pouting face"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🙎‍♂️",
-    tags:  &["man pouting","pouting man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🙎‍♀️",
-    tags:  &["woman pouting","pouting woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1073,28 +1043,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🙅‍♂️",
-    tags:  &["man gesturing NO","stop","halt","denied","no good man","ng man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🙅‍♀️",
-    tags:  &["woman gesturing NO","stop","halt","denied","no good woman","ng woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🙆",
     tags:  &["person gesturing OK","ok person"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🙆‍♂️",
-    tags:  &["man gesturing OK","ok man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🙆‍♀️",
-    tags:  &["woman gesturing OK","ok woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1103,28 +1053,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "💁‍♂️",
-    tags:  &["man tipping hand","information","tipping hand man","sassy man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "💁‍♀️",
-    tags:  &["woman tipping hand","information","tipping hand woman","sassy woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🙋",
     tags:  &["person raising hand","raising hand"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🙋‍♂️",
-    tags:  &["man raising hand","raising hand man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🙋‍♀️",
-    tags:  &["woman raising hand","raising hand woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1133,28 +1063,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🙇‍♂️",
-    tags:  &["man bowing","respect","thanks","bowing man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🙇‍♀️",
-    tags:  &["woman bowing","respect","thanks","bowing woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🤦",
     tags:  &["person facepalming","facepalm"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🤦‍♂️",
-    tags:  &["man facepalming"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🤦‍♀️",
-    tags:  &["woman facepalming"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1163,28 +1073,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🤷‍♂️",
-    tags:  &["man shrugging"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🤷‍♀️",
-    tags:  &["woman shrugging"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "👮",
     tags:  &["police officer","law","cop"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "👮‍♂️",
-    tags:  &["man police officer","law","cop","policeman"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "👮‍♀️",
-    tags:  &["woman police officer","law","cop","policewoman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1193,43 +1083,13 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🕵️‍♂️",
-    tags:  &["man detective","sleuth","male detective"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🕵️‍♀️",
-    tags:  &["woman detective","sleuth","female detective"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "💂",
     tags:  &["guard"],
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "💂‍♂️",
-    tags:  &["man guard","guardsman"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "💂‍♀️",
-    tags:  &["woman guard","guardswoman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "👷",
     tags:  &["construction worker","helmet"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "👷‍♂️",
-    tags:  &["man construction worker","helmet","construction worker man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "👷‍♀️",
-    tags:  &["woman construction worker","helmet","construction worker woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1245,16 +1105,6 @@ EmojiData {
 ,EmojiData {
     emoji: "👳",
     tags:  &["person wearing turban","person with turban"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "👳‍♂️",
-    tags:  &["man wearing turban","man with turban"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "👳‍♀️",
-    tags:  &["woman wearing turban","woman with turban"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1308,28 +1158,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🦸‍♂️",
-    tags:  &["man superhero","superhero man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🦸‍♀️",
-    tags:  &["woman superhero","superhero woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🦹",
     tags:  &["supervillain"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🦹‍♂️",
-    tags:  &["man supervillain","supervillain man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🦹‍♀️",
-    tags:  &["woman supervillain","supervillain woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1338,28 +1168,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🧙‍♂️",
-    tags:  &["man mage","wizard","mage man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧙‍♀️",
-    tags:  &["woman mage","wizard","mage woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🧚",
     tags:  &["fairy"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧚‍♂️",
-    tags:  &["man fairy","fairy man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧚‍♀️",
-    tags:  &["woman fairy","fairy woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1368,28 +1178,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🧛‍♂️",
-    tags:  &["man vampire","vampire man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧛‍♀️",
-    tags:  &["woman vampire","vampire woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🧜",
     tags:  &["merperson"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧜‍♂️",
-    tags:  &["merman"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧜‍♀️",
-    tags:  &["mermaid"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1398,28 +1188,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🧝‍♂️",
-    tags:  &["man elf","elf man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧝‍♀️",
-    tags:  &["woman elf","elf woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🧞",
     tags:  &["genie"],
-    skintone_modifier: false
-}
-,EmojiData {
-    emoji: "🧞‍♂️",
-    tags:  &["man genie","genie man"],
-    skintone_modifier: false
-}
-,EmojiData {
-    emoji: "🧞‍♀️",
-    tags:  &["woman genie","genie woman"],
     skintone_modifier: false
 }
 ,EmojiData {
@@ -1428,28 +1198,8 @@ EmojiData {
     skintone_modifier: false
 }
 ,EmojiData {
-    emoji: "🧟‍♂️",
-    tags:  &["man zombie","zombie man"],
-    skintone_modifier: false
-}
-,EmojiData {
-    emoji: "🧟‍♀️",
-    tags:  &["woman zombie","zombie woman"],
-    skintone_modifier: false
-}
-,EmojiData {
     emoji: "💆",
     tags:  &["person getting massage","spa","massage"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "💆‍♂️",
-    tags:  &["man getting massage","spa","massage man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "💆‍♀️",
-    tags:  &["woman getting massage","spa","massage woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1458,43 +1208,13 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "💇‍♂️",
-    tags:  &["man getting haircut","haircut man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "💇‍♀️",
-    tags:  &["woman getting haircut","haircut woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🚶",
     tags:  &["person walking","walking"],
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🚶‍♂️",
-    tags:  &["man walking","walking man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🚶‍♀️",
-    tags:  &["woman walking","walking woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🏃",
     tags:  &["person running","exercise","workout","marathon","runner","running"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🏃‍♂️",
-    tags:  &["man running","exercise","workout","marathon","running man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🏃‍♀️",
-    tags:  &["woman running","exercise","workout","marathon","running woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1518,43 +1238,13 @@ EmojiData {
     skintone_modifier: false
 }
 ,EmojiData {
-    emoji: "👯‍♂️",
-    tags:  &["men with bunny ears","bunny","dancing men"],
-    skintone_modifier: false
-}
-,EmojiData {
-    emoji: "👯‍♀️",
-    tags:  &["women with bunny ears","bunny","dancing women"],
-    skintone_modifier: false
-}
-,EmojiData {
     emoji: "🧖",
     tags:  &["person in steamy room","steamy","sauna person"],
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🧖‍♂️",
-    tags:  &["man in steamy room","steamy","sauna man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧖‍♀️",
-    tags:  &["woman in steamy room","steamy","sauna woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🧗",
     tags:  &["person climbing","bouldering","climbing"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧗‍♂️",
-    tags:  &["man climbing","bouldering","climbing man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧗‍♀️",
-    tags:  &["woman climbing","bouldering","climbing woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1583,23 +1273,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🏌️‍♂️",
-    tags:  &["man golfing","golfing man"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🏄",
     tags:  &["person surfing","surfer"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🏄‍♂️",
-    tags:  &["man surfing","surfing man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🏄‍♀️",
-    tags:  &["woman surfing","surfing woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1608,28 +1283,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🚣‍♂️",
-    tags:  &["man rowing boat","rowing man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🚣‍♀️",
-    tags:  &["woman rowing boat","rowing woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🏊",
     tags:  &["person swimming","swimmer"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🏊‍♂️",
-    tags:  &["man swimming","swimming man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🏊‍♀️",
-    tags:  &["woman swimming","swimming woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1638,28 +1293,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "⛹️‍♂️",
-    tags:  &["man bouncing ball","bouncing ball man","basketball man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "⛹️‍♀️",
-    tags:  &["woman bouncing ball","bouncing ball woman","basketball woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🏋️",
     tags:  &["person lifting weights","gym","workout","weight lifting"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🏋️‍♂️",
-    tags:  &["man lifting weights","gym","workout","weight lifting man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🏋️‍♀️",
-    tags:  &["woman lifting weights","gym","workout","weight lifting woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1668,28 +1303,8 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🚴‍♂️",
-    tags:  &["man biking","biking man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🚴‍♀️",
-    tags:  &["woman biking","biking woman"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🚵",
     tags:  &["person mountain biking","mountain bicyclist"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🚵‍♂️",
-    tags:  &["man mountain biking","mountain biking man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🚵‍♀️",
-    tags:  &["woman mountain biking","mountain biking woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1703,28 +1318,8 @@ EmojiData {
     skintone_modifier: false
 }
 ,EmojiData {
-    emoji: "🤼‍♂️",
-    tags:  &["men wrestling"],
-    skintone_modifier: false
-}
-,EmojiData {
-    emoji: "🤼‍♀️",
-    tags:  &["women wrestling"],
-    skintone_modifier: false
-}
-,EmojiData {
     emoji: "🤽",
     tags:  &["person playing water polo","water polo"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🤽‍♂️",
-    tags:  &["man playing water polo"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🤽‍♀️",
-    tags:  &["woman playing water polo"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -1733,43 +1328,13 @@ EmojiData {
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🤾‍♂️",
-    tags:  &["man playing handball"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🤾‍♀️",
-    tags:  &["woman playing handball"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🤹",
     tags:  &["person juggling","juggling person"],
     skintone_modifier: true
 }
 ,EmojiData {
-    emoji: "🤹‍♂️",
-    tags:  &["man juggling"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🤹‍♀️",
-    tags:  &["woman juggling"],
-    skintone_modifier: true
-}
-,EmojiData {
     emoji: "🧘",
     tags:  &["person in lotus position","meditation","lotus position"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧘‍♂️",
-    tags:  &["man in lotus position","meditation","lotus position man"],
-    skintone_modifier: true
-}
-,EmojiData {
-    emoji: "🧘‍♀️",
-    tags:  &["woman in lotus position","meditation","lotus position woman"],
     skintone_modifier: true
 }
 ,EmojiData {
@@ -5830,16 +5395,6 @@ EmojiData {
 ,EmojiData {
     emoji: "📴",
     tags:  &["mobile phone off","mute","off"],
-    skintone_modifier: false
-}
-,EmojiData {
-    emoji: "♀️",
-    tags:  &["female sign"],
-    skintone_modifier: false
-}
-,EmojiData {
-    emoji: "♂️",
-    tags:  &["male sign"],
     skintone_modifier: false
 }
 ,EmojiData {

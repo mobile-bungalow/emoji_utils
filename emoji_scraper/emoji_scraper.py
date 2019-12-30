@@ -57,6 +57,10 @@ def combine_tags(obj):
 def main():
     raw_json = json.loads(requests.get(emoji_json_url).text)
     unic_v = "unicode_version"
+
+    # i remove all male and female modifiers
+    # unfortunately qt has an emoji rendering bug
+    # and this crate targets Qt. just remove line ~67 to fix that.
     filtered_json = list(filter(
         lambda obj:
         float(obj[unic_v] if obj[unic_v] else "13.0") < 12.0

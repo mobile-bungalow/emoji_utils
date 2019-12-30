@@ -24,7 +24,7 @@ pub enum Language {
 /// the main interface with the static emoji
 /// data.
 pub struct EmojiUtil {
-    pub current_emojis: Option<Vec<&'static str>>,
+    pub current_emojis: Option<Vec<&'static EmojiData>>,
     pub search_string: Option<String>,
     pub language: Language,
 }
@@ -32,7 +32,7 @@ pub struct EmojiUtil {
 impl EmojiUtil {
     pub fn new(lang: Language) -> EmojiUtil {
         EmojiUtil {
-            current_emojis: Some(EMOJI_DATA.iter().map(|datum| datum.emoji).collect()),
+            current_emojis: Some(EMOJI_DATA.iter().collect()),
             search_string: None,
             language: lang,
         }
@@ -44,7 +44,7 @@ impl EmojiUtil {
 
     pub fn clear_search(&mut self) {
         self.search_string = None;
-        self.current_emojis = Some(EMOJI_DATA.iter().map(|datum| datum.emoji).collect())
+        self.current_emojis = Some(EMOJI_DATA.iter().collect())
     }
 
     pub fn set_language(&mut self, language: Language) {
@@ -54,47 +54,65 @@ impl EmojiUtil {
 
 // Search The emoji structure for emojis with
 // tags matching the search string
-fn emoji_search(search_string: String, lang: &Language) -> Option<Vec<&'static str>> {
+fn emoji_search(search_string: String, lang: &Language) -> Option<Vec<&'static EmojiData>> {
     if let Ok(re) = Regex::new(&escape(&search_string)) {
-        let matches: Vec<&EmojiData> = EMOJI_DATA
-            .iter()
-            .filter(|datum| datum.tags.iter().any(|tag| re.is_match(tag)))
-            .collect();
-        if matches.len() > 0 {
-            Some(
-                matches
-                    .iter()
-                    .enumerate()
-                    .map(|(_, x)| translate(x.emoji, lang))
-                    .collect(),
-            )
-        } else {
-            None
-        }
+        Some(
+            EMOJI_DATA
+                .iter()
+                .enumerate()
+                .filter(|(_, datum)| datum.tags.iter().any(|tag| re.is_match(tag)))
+                .map(|(i, _)| translate(i, lang))
+                .collect(),
+        )
     } else {
         None
     }
 }
 
 // runs the given text through
-fn translate(tag: &'static str, lang: &Language) -> &'static str {
+fn translate(index: usize, lang: &Language) -> &'static EmojiData {
     match lang {
-        Language::En => tag,
+        _ => &EMOJI_DATA[index],
         // TODO: run other languages through a lookup
         // table which substitutes their text for the correct
-        // tag in another language.
-        _ => "",
+        // tag in another language. table should be lazy static
+        // to avoid too much allocation.
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::fmt::{Debug, Formatter, Result};
+
+    impl PartialEq for EmojiData {
+        fn eq(&self, other: &Self) -> bool {
+            self.emoji == other.emoji
+        }
+    }
+    impl Debug for EmojiData {
+        fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+            write!(f, "({})", self.emoji)
+        }
+    }
+
     #[test]
     fn emoji_search_test() {
         let mut eu = EmojiUtil::new(Language::En);
         eu.search(String::from("thumb"));
-        assert_eq!(Some(vec!["👍", "👎"]), eu.current_emojis);
+        assert_eq!(
+            Some(vec![
+                &EmojiData {
+                    emoji: "👍",
+                    tags: &[]
+                },
+                &EmojiData {
+                    emoji: "👎",
+                    tags: &[]
+                }
+            ]),
+            eu.current_emojis
+        );
     }
 
     #[test]
@@ -102,7 +120,19 @@ mod tests {
         let mut eu = EmojiUtil::new(Language::En);
         let orig_clone = eu.current_emojis.clone();
         eu.search(String::from("thumb"));
-        assert_eq!(Some(vec!["👍", "👎"]), eu.current_emojis);
+        assert_eq!(
+            Some(vec![
+                &EmojiData {
+                    emoji: "👍",
+                    tags: &[]
+                },
+                &EmojiData {
+                    emoji: "👎",
+                    tags: &[]
+                }
+            ]),
+            eu.current_emojis
+        );
         eu.clear_search();
         assert_eq!(orig_clone, eu.current_emojis);
     }

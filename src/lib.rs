@@ -55,18 +55,14 @@ impl EmojiUtil {
 // Search The emoji structure for emojis with
 // tags matching the search string
 fn emoji_search(search_string: String, lang: &Language) -> Option<Vec<&'static EmojiData>> {
-    if let Ok(re) = Regex::new(&escape(&search_string)) {
-        Some(
-            EMOJI_DATA
-                .iter()
-                .enumerate()
-                .filter(|(_, datum)| datum.tags.iter().any(|tag| re.is_match(tag)))
-                .map(|(i, _)| translate(i, lang))
-                .collect(),
-        )
-    } else {
-        None
-    }
+    Regex::new(&escape(&search_string)).ok().map(|re| {
+        EMOJI_DATA
+            .iter()
+            .enumerate()
+            .filter(|(_, datum)| datum.tags.iter().any(|tag| re.is_match(tag)))
+            .map(|(i, _)| translate(i, lang))
+            .collect::<Vec<_>>()
+    })
 }
 
 // runs the given text through
